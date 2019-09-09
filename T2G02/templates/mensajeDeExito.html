@@ -1,0 +1,13 @@
+ {% extends 'navbar.html' %}
+
+  {% block content %}
+ <div class="container mx-auto mt-1">
+<div class="card border-success text-center" >
+  <div class="card-body">
+    <h5 class="card-title">{{ titleMessage }}</h5>
+    <p class="card-text">{{ message }}</p>
+    <a href="#" class="btn btn-outline-success" onClick="window.history.back();return false">Volver </a>
+  </div>
+</div></div>
+
+  {% endblock content %}
