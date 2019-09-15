@@ -1,0 +1,46 @@
+{% extends 'navbar.html' %}
+
+{% block title %}
+Inicio
+{% endblock title %}
+
+{% block content %}
+
+<div id="descripcion" class="container">
+    <h1>Feedback de tu clase</h1>
+
+    <form action="{% url 'exitofeedback' %}" autocomplete="off" method="post">
+            {% csrf_token %}
+
+    <div class="form-group">
+      <label for="exampleInputTexto">Nombre</label>
+      <input type="text" class="form-control" id="exampleText" placeholder="Ingrese nombre del usuario" name="inputText">
+    </div>
+
+
+    <div class="form-group">
+      <label for="materia">Materia </label>
+      <input type="text" class="form-control" id="exampleText" placeholder="¿De que materia fue la clase?" name="materia">
+    </div>
+
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <input type="text" class="form-control" id="exampleText" placeholder="¿Que recomendaciones le darias para clases futuras?" name="descripcion">
+    </div>
+
+    <br>
+
+
+    <div class="form-group">
+    <button type="submit" class="btn btn-primary">Listo</button>
+    </div>
+  
+  </form>
+       
+</div>
+
+
+
+
+
+{% endblock content %}
