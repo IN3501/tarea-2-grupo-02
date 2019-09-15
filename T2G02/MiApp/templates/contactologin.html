@@ -1,3 +1,9 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Contacto
+{% endblock title %}
+
+{% block content %}
 <div id="descripcion" class="container">
   <h1>¡Contáctanos!</h1>
        <form action="{% url 'contactoExitoso' %}" autocomplete="off" method="post">
@@ -20,3 +26,4 @@
   </form>
 
 </div>
+{% endblock content %}

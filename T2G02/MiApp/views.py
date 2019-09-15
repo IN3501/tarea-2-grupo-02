@@ -3,27 +3,29 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-	 if request is not None:
+    if request is not None:
         if request.method == 'POST':
             if 'inputText' and 'password':
                 nombre = request.POST['inputText']
                 if nombre:
-                    return render(request, 'home.html',
-                                  {'name': nombre}
-                                   )
+                    return render(request, 'home.html', {'name': nombre})
     return render(request, 'home.html')
 
+
 def contacto(request):
-	if request.method =='POST':
-		return render(request, 'contactoExitoso.html')
-	else:
-		return render(request, 'Contacto.html')
+    return render(request, 'contactologin.html')
+def contactoLogOut(request):
+    return render(request, 'contactologout.html')
+
 
 def inputs(request):
-	return render(request, 'inputs.html')
-        
+    return render(request, 'avisos.html')
+
+
 def login(request):
     return render(request, 'login.html')
+
+
 def avisos(request):
     if request.method == 'POST':
         name = request.POST['inputText']
@@ -33,54 +35,83 @@ def avisos(request):
         if name and type and day:
             return render(request, 'avisos.html',
                           {'name': name,
-                           'type':type,
-                           'day':s.join(day)
+                           'type': type,
+                           'day': s.join(day)
                            })
     return render(request, 'avisos.html')
+
 
 def registrarse(request):
     if request.method == 'POST':
         return render(request, 'mensajeDeExito.html')
     else:
         return render(request, 'formNuevaCuenta.html')
+
+
 def feedback(request):
-    return render(request,'formulariotarea2.html')
+    return render(request, 'formulariotarea2.html')
+
+
 def exitoFeedback(request):
     if request is not None:
         if request.method == 'POST':
-            if 'inputText' and 'inputEmail' and 'inputPassword':
+            if 'grade'and 'inputText' and 'inputEmail' and 'inputPassword':
                 nombre = request.POST['inputText']
                 materia = request.POST['materia']
                 descripcion = request.POST['descripcion']
+                nota=request.POST["grade"]
                 if nombre and materia and descripcion:
                     mensaje = "Hemos enviado tu feedback a " + nombre + ", con quien tuviste clases de  " + \
-                              materia+" con el siguiente comentario "+descripcion
+                              materia + " con el siguiente comentario " + descripcion + "y la siguiente nota:"+nota
                     return render(request, 'mensajeDeExitoLogOut.html',
                                   {'titleMessage': "Feedback enviado con exito",
                                    'message': mensaje})
-    return render(request,'formulariotarea2.html')
+    return render(request, 'formulariotarea2.html')
+
 
 def contactoExitoso(request):
-	if request is not None:
-		if request.method == 'POST':
-			if 'inputText' and 'inputEmail' and 'Coment':
-				nombre=request.POST['inputText']
-				email=request.POST['inputEmail']
-				coment=request.POST['Coment']
-				return render(request, 'contactoExitoso.html')
-	return render(request, 'contacto.html')
+    if request is not None:
+        if request.method == 'POST':
+            if 'inputText' and 'inputEmail' and 'Coment':
+                nombre = request.POST['inputText']
+                email = request.POST['inputEmail']
+                coment = request.POST['Coment']
+                mensaje = "Hola " + nombre + ", hemos recibido tu mensaje: " + \
+                          coment + ", com el correo: " + email + ", te contactaremos a la brevedad"
+                return render(request, 'mensajeDeExito.html',
+                              {'titleMessage': "¡Gracias por contactarnos!",
+                               'message': mensaje})
+    return render(request, 'contacto.html')
+
+def contactoExitosoLogOut(request):
+    if request is not None:
+        if request.method == 'POST':
+            if 'inputText' and 'inputEmail' and 'Coment':
+                nombre = request.POST['inputText']
+                email = request.POST['inputEmail']
+                coment = request.POST['Coment']
+                mensaje = "Hola " + nombre + ", hemos recibido tu mensaje: " + \
+                          coment + ", com el correo: " + email + ", te contactaremos a la brevedad"
+                return render(request, 'mensajeDeExitoLogOut.html',
+                              {'titleMessage': "¡Gracias por contactarnos!",
+                               'message': mensaje})
+    return render(request, 'contacto.html')
 
 def mensajeEnviado(request):
-	if request is not None:
-		if request.method == 'POST':
-			if 'inputText' and 'inputEmail' and 'inputEmail2' and 'quien'and'Coment' :
-				nombre=request.POST['inputText']
-				email=request.POST['inputEmail']
-				destino=request.POST['quien']
-				email=request.POST['inputEmail2']
-				coment=request.POST['Coment']
-				return render(request, 'mensajeEnviado.html')
-	return render(request, 'nuevoMensaje.html')
+    if request is not None:
+        if request.method == 'POST':
+            if 'inputText' and 'inputEmail' and 'inputEmail2' and 'quien' and 'Coment':
+                nombre = request.POST['inputText']
+                email1 = request.POST['inputEmail']
+                destino = request.POST['quien']
+                email2 = request.POST['inputEmail2']
+                coment = request.POST['Coment']
+                mensaje="Hemos enviado tu mensaje:"+coment + " al "+ destino+" llamado "+nombre+" cuyo correo es:" + email2+" .El usuario se pondrá en contacto contigo al correo: "+email1
+                return render(request, 'mensajeDeExitoLogOut.html',
+                              {'titleMessage': "¡Hemos contacto al usuario "+nombre+"!",
+                               'message': mensaje})
+    return render(request, 'nuevoMensaje.html')
+
 
 def exitoCrearCuenta(request):
     if request is not None:
@@ -94,16 +125,19 @@ def exitoCrearCuenta(request):
                     return render(request, 'mensajeDeExitoLogOut.html',
                                   {'titleMessage': "Cuenta creada con exito",
                                    'message': mensaje})
-	return render(request, 'formNuevaCuenta.html')
+        return render(request, 'formNuevaCuenta.html')
+
 
 def nuevoMensaje(request):
-	if request.method == 'POST':
-		return render(request, 'mensajeEnviado.html')
-	else:
-		return render(request, 'nuevoMensaje.html')
+    if request.method == 'POST':
+        return render(request, 'mensajeEnviado.html')
+    else:
+        return render(request, 'nuevoMensaje.html')
+
 
 def inbox(request):
-	return render(request, 'inbox.html')
+    return render(request, 'inbox.html')
+
 
 def agregarAviso(request):
     return render(request, 'formAgregarAviso.html')

@@ -44,7 +44,8 @@ Inputs
       <td></td>
       <td></td>
       <td>{{day}}</td>
-        <td><button type="button" class="btn btn-outline-dark">Enviar un mensaje</button></td>
+        <td><a href="{% url 'nuevoMensaje' %}" class="btn btn-outline-dark">Enviar un mensaje</a></td>
+        </td>
     </tr>
 {% endif %}
 
@@ -54,7 +55,7 @@ Inputs
       <td>Mark</td>
       <td>7</td>
       <td>Lunes</td>
-        <td><button type="button" class="btn btn-outline-dark">Enviar un mensaje</button></td>
+    <td><a href="{% url 'nuevoMensaje' %}" class="btn btn-outline-dark">Enviar un mensaje</a></td>
     </tr>
     <tr>
                 <th scope="row">Busco</th>
@@ -63,7 +64,7 @@ Inputs
       <td>Jacob</td>
       <td>6</td>
       <td>Lunes, Martes</td>
-        <td><button type="button" class="btn btn-outline-dark">Enviar un mensaje</button></td>
+        <td><a href="{% url 'nuevoMensaje' %}" class="btn btn-outline-dark">Enviar un mensaje</a></td>
     </tr>
     <tr>
                 <th scope="row">Ofresco</th>
@@ -72,7 +73,7 @@ Inputs
       <td>Larry</td>
       <td>6.5</td>
       <td>Sábado</td>
-        <td><button type="button" class="btn btn-outline-dark">Enviar un mensaje</button></td>
+        <td><a href="{% url 'nuevoMensaje' %}" class="btn btn-outline-dark">Enviar un mensaje</a></td>
     </tr>
   </tbody>
 </table>
