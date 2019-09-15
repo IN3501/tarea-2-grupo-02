@@ -5,8 +5,10 @@ Inicio
 {% endblock title %}
 
 {% block content %}
-Bienvenide al curso
-
+{% if name %}
+    Bienvenido
+{{ name }}
+    {% endif %}
 {% endblock content %}
 
 

@@ -12,6 +12,8 @@ urlpatterns = [
     path('inbox/', inbox, name='inbox'),
     path('contactoExitoso/', contactoExitoso, name='contactoExitoso'),
     path('mensajeEnviado/', mensajeEnviado, name="mensajeEnviado"),
-
+    path('agregarAviso/', agregarAviso, name='agregarAviso'),
+    path('feedback/', feedback, name='feedback'),2
+    path('exitofeedback/', exitoFeedback, name='exitofeedback'),
 ]
 

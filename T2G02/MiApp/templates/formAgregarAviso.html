@@ -1,0 +1,73 @@
+{% extends 'navbar.html' %}
+
+{% block title %}
+    Agregar Aviso
+{% endblock title %}
+
+{% block content %}
+    <div id="aviso" class="container">
+        <h1>Formulario de Registro de Avisos</h1>
+
+        <form action="{% url 'avisos' %}" autocomplete="off" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="inputText">Nombre Curso*</label>
+                <input type="text" class="form-control" id="inputText" placeholder="Ingrese nombre del curso"
+                       name="inputText" required>
+
+            </div>
+            <div class="form-group">
+                <label for="type">Tipo de Aviso*</label>
+                <select class="form-control" id="type" name="type">
+                    <option value="Busco">Busco tutoría</option>
+                    <option value="Ofresco">Ofresco tutoría</option>
+                </select>
+            </div>
+            Días disponibles*
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="day" value="Lunes">
+                    <label class="form-check-label" for="exampleCheck1">Lunes</label>
+                </div>
+
+
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck2" name="day" value="Martes">
+                    <label class="form-check-label" for="exampleCheck2">Martes</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck3" name="day" value="Miércoles">
+                    <label class="form-check-label" for="exampleCheck3">Miércoles</label>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="day" value="Jueves">
+                        <label class="form-check-label" for="exampleCheck1">Jueves</label>
+                    </div>
+
+
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck2" name="day" value="Viernes">
+                        <label class="form-check-label" for="exampleCheck2">Viernes</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck3" name="day" value="Sábado">
+                        <label class="form-check-label" for="exampleCheck3">Sábado</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck3" name="day" value="Domingo">
+                        <label class="form-check-label" for="exampleCheck3">Domingo</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+        </form>
+
+    </div>
+
+{% endblock content %}

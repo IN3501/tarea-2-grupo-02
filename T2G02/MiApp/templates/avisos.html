@@ -1,0 +1,82 @@
+
+{% extends 'navbar.html' %}
+
+{% block title %}
+Inputs
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+<div class="row">
+    <div class="col">
+        <p class="font-weight-bold">Avisos</p>
+</div>
+    <div class="col">
+<a href="{% url 'agregarAviso' %}">Agregar un aviso</a>
+</div>
+<div class="col">
+
+    <form class="form-inline my-2 my-lg-0 float-right">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+      <button class="btn btn-outline-primary " type="submit">Buscar</button>
+    </form>
+    </div>
+</div>
+
+    <div class="table-responsive">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+        <th scope="col"> Ofresco o busco tutoría</th>
+      <th scope="col">Curso</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Evaluación</th>
+      <th scope="col">Disponibilidad</th>
+        <th scope="col">Contactar<th>
+    </tr>
+  </thead>
+  <tbody>
+{% if name %}
+    <tr>
+        <th scope="row">{{type}}</th>
+      <th scope="row">{{name}}</th>
+      <td></td>
+      <td></td>
+      <td>{{day}}</td>
+        <td><button type="button" class="btn btn-outline-dark">Enviar un mensaje</button></td>
+    </tr>
+{% endif %}
+
+<tr>
+        <th scope="row">Busco</th>
+      <th scope="row">Tecnologías de Información y Comunicaciones para la Gestión</th>
+      <td>Mark</td>
+      <td>7</td>
+      <td>Lunes</td>
+        <td><button type="button" class="btn btn-outline-dark">Enviar un mensaje</button></td>
+    </tr>
+    <tr>
+                <th scope="row">Busco</th>
+
+      <th scope="row">Inglés</th>
+      <td>Jacob</td>
+      <td>6</td>
+      <td>Lunes, Martes</td>
+        <td><button type="button" class="btn btn-outline-dark">Enviar un mensaje</button></td>
+    </tr>
+    <tr>
+                <th scope="row">Ofresco</th>
+
+      <th scope="row">Electromagnetismo</th>
+      <td>Larry</td>
+      <td>6.5</td>
+      <td>Sábado</td>
+        <td><button type="button" class="btn btn-outline-dark">Enviar un mensaje</button></td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+</div>
+
+{% endblock content %}
